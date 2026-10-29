@@ -3,7 +3,7 @@ kind: Component
 metadata:
   name: fastcs-mythen
   title: fastcs-mythen
-  description: Mythen3 Detector FastCS implementation
+  description: Mythen Detector FastCS implementation
 spec:
   type: service
   lifecycle: experimental

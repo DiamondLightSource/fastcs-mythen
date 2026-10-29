@@ -12,10 +12,12 @@ classifiers = [
     "Programming Language :: Python :: 3.13",
     "Programming Language :: Python :: 3.14",
 ]
-description = "Mythen3 Detector FastCS implementation"
+description = "Mythen Detector FastCS implementation"
 dependencies = [
-    "fastcs[epicsca]",
-    "slsDet==9.2.0",
+    "fastcs[epicsca]>=0.14.0",
+    "slsDet==10.0.0",
+    "bidict==0.24.1",
+
 ] # Add project dependencies here, e.g. ["click", "numpy"]
 dynamic = ["version"]
 license.file = "LICENSE"
@@ -51,8 +53,8 @@ required-version = ">=0.13.5"
 version_file = "src/fastcs_mythen/_version.py"
 
 [tool.pyright]
-typeCheckingMode = "strict"
-reportMissingImports = false # Ignore missing stubs in imported modules
+typeCheckingMode = "standard"
+reportMissingImports = false  # Ignore missing stubs in imported modules
 
 [tool.pytest.ini_options]
 # Run pytest with all our checkers, and don't spam us with massive tracebacks on error

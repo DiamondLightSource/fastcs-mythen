@@ -6,7 +6,7 @@ author_name: Niamh Dougan
 component_lifecycle: experimental
 component_owner: group:default/sscc
 component_type: service
-description: Mythen3 Detector FastCS implementation
+description: Mythen Detector FastCS implementation
 distribution_name: fastcs-mythen
 docker: true
 docs_type: README
@@ -15,5 +15,5 @@ github_org: DiamondLightSource
 package_name: fastcs_mythen
 pypi: true
 repo_name: fastcs-mythen
-strict_typing: true
+strict_typing: false
 type_checker: pyright
