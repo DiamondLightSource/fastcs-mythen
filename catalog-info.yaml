@@ -1,0 +1,10 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: fastcs-mythen
+  title: fastcs-mythen
+  description: Mythen3 Detector FastCS implementation
+spec:
+  type: service
+  lifecycle: experimental
+  owner: group:default/sscc

@@ -1,0 +1,19 @@
+# Changes here will be overwritten by Copier
+_commit: 5.5.0
+_src_path: git@github.com:DiamondLightSource/python-copier-template.git
+author_email: niamh.dougan@diamond.ac.uk
+author_name: Niamh Dougan
+component_lifecycle: experimental
+component_owner: group:default/sscc
+component_type: service
+description: Mythen3 Detector FastCS implementation
+distribution_name: fastcs-mythen
+docker: true
+docs_type: README
+git_platform: github.com
+github_org: DiamondLightSource
+package_name: fastcs_mythen
+pypi: true
+repo_name: fastcs-mythen
+strict_typing: true
+type_checker: pyright
