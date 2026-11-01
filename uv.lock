@@ -743,7 +743,7 @@ dev = [
 requires-dist = [
     { name = "bidict", specifier = "==0.24.1" },
     { name = "fastcs", extras = ["epicsca"], specifier = ">=0.14.0" },
-    { name = "slsdet", specifier = "==10.0.0" },
+    { name = "slsdet", specifier = "==10.0.1" },
 ]
 
 [package.metadata.requires-dev]
@@ -2419,17 +2419,18 @@ wheels = [
 
 [[package]]
 name = "slsdet"
-version = "10.0.0"
+version = "10.0.1"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "numpy", version = "2.4.6", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version < '3.12'" },
     { name = "numpy", version = "2.5.4", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version >= '3.12'" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/f9/9b/d442fefc0ac7570d444fd68fbb87fe34d74048421f8d08c379b9af3885f5/slsdet-10.0.0.tar.gz", hash = "sha256:469c55eee310a3031628ae5b026a26d7e29412ac1d2b4aff06e4adac9386cf1b", size = 12534266, upload-time = "2025-09-10T14:49:41.75Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/28/d3/3fc812ad2d5edad0d36df3255add4eb7328bfe73435eaa2df2f45b17869e/slsdet-10.0.1.tar.gz", hash = "sha256:896307708f12604fb9ddb717e14b608e5100fb69d85415a4788ff7f97e07c689", size = 20177525, upload-time = "2026-10-07T12:18:07.292Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/9d/7f/1c4c144d706a3386e27a04be28df6d0e38e10ca94bc0736c59fcff63d115/slsdet-10.0.0-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:7fdd5a44672fbbb74b67dcbf5ad08636593227257ab8edd57ba6e63cb5d7883e", size = 1547317, upload-time = "2025-09-10T14:49:37.328Z" },
-    { url = "https://files.pythonhosted.org/packages/6e/84/5fdb07466ee46ed8e4f1b16492ff462d9e0ca6173b359f0791040efd0faa/slsdet-10.0.0-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:763f57fa080f614a7b15ba24b4a9406dff8c195f5608d2830319ea77d1ded4cc", size = 1549449, upload-time = "2025-09-10T14:49:38.745Z" },
-    { url = "https://files.pythonhosted.org/packages/4b/b4/1f371abba7945f03becd74e3ca32a2bd9d67092fd139442c4c4db64e8ed3/slsdet-10.0.0-cp313-cp313-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:e0175b8feef7a0e63d915199db1600ddd88af7b037ae36eca4afa2b65668c921", size = 1549403, upload-time = "2025-09-10T14:49:40.251Z" },
+    { url = "https://files.pythonhosted.org/packages/57/dd/f1f9afef9545140978ebff465184c2e4abfe636e94f8b5f73c4498016647/slsdet-10.0.1-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl", hash = "sha256:588a499dbec3b6411cb323c4f24e9e2d83b943e24f85a5dd77e53491b1093572", size = 1684556, upload-time = "2026-10-07T12:17:59.295Z" },
+    { url = "https://files.pythonhosted.org/packages/65/ed/23ae8a1274d4eb2d03167a822bca55fe9784308409ac020c0ae9d185404e/slsdet-10.0.1-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl", hash = "sha256:e7f86d4ab244fbbcb1d44aeb7d235e571fe46b3723282fdb2164157a327586c2", size = 1687346, upload-time = "2026-10-07T12:18:01.232Z" },
+    { url = "https://files.pythonhosted.org/packages/0a/90/5f5b3d2af31d62d6465af087058a41fb9a4c1d96f57918205c47f9254811/slsdet-10.0.1-cp313-cp313-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl", hash = "sha256:bb000ec2d21a7611137ad9e8cc65054bbaffb97b1d965fc259e43c7dd53d4f53", size = 1687312, upload-time = "2026-10-07T12:18:03.425Z" },
+    { url = "https://files.pythonhosted.org/packages/1a/e0/b329d758fb755b6989b0a250e06304d6ca0226509312d681c75ed57ae938/slsdet-10.0.1-cp314-cp314-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl", hash = "sha256:cacda6257727e03e7caffb62732ac092ce7ede1e650f50823f9844cca904ca0e", size = 1686916, upload-time = "2026-10-07T12:18:05.332Z" },
 ]
 
 [[package]]
