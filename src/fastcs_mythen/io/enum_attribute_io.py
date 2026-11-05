@@ -3,10 +3,11 @@ from dataclasses import KW_ONLY, dataclass
 
 from bidict import bidict
 from fastcs.attributes import AttributeIO, AttributeIORef, AttrR, AttrW
-from fastcs.logging import bind_logger
-from slsdet import Mythen
 
-logger = bind_logger(__name__)
+# from fastcs.logging import bind_logger
+from slsdet import Mythen3
+
+# logger = bind_logger(__name__)
 
 """Handler for AttrRW using enums, to allow us to map slsdet enums to our own enums.
 
@@ -34,7 +35,7 @@ class EnumAttributeIORef(AttributeIORef):
 
 
 class EnumAttributeIO(AttributeIO[enum.StrEnum, EnumAttributeIORef]):
-    def __init__(self, detector: Mythen):
+    def __init__(self, detector: Mythen3):
         self.detector = detector
         super().__init__()
 

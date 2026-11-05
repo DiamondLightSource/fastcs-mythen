@@ -1,7 +1,7 @@
 import enum
 
 from bidict import bidict
-from fastcs.attributes import AttrR, AttrRW
+from fastcs.attributes import AttrR, AttrRW, AttrW
 from fastcs.controllers.controller import Controller
 from fastcs.datatypes import Enum, Float, Int, String
 from fastcs.methods import command, scan
@@ -42,8 +42,8 @@ TRIGGER_MODE_ENUM_MAPPING: bidict[enum.StrEnum, enum.IntEnum] = bidict(
     {
         TriggerMode.Auto: TimingMode.AUTO_TIMING,  # type: ignore
         TriggerMode.Trigger: TimingMode.TRIGGER_EXPOSURE,  # type: ignore
-        TriggerMode.Gating: TimingMode.GATING,  # type: ignore
-        TriggerMode.Trigger_Gating: TimingMode.TRIGGER_GATING,  # type: ignore
+        TriggerMode.Gating: TimingMode.GATED,  # type: ignore
+        TriggerMode.Trigger_Gating: TimingMode.TRIGGER_GATED,  # type: ignore
     }
 )
 
@@ -106,12 +106,19 @@ class MythenController(Controller):
         group=STATUS,
     )
 
-    # Read/Write Attributes
-    threshold = AttrRW(
-        Float(units="eV"),
-        io_ref=MythenAttributeIORef("threshold"),
+    frames_written = AttrR(
+        Int(),
+        io_ref=MythenAttributeIORef("rx_framescaught"),
         group=ACQUISITION,
     )
+
+    # Read/Write Attributes
+    # Failing as hardware returns `[7500, 7500, 7500]` not a float
+    # threshold = AttrRW(
+    #     Float(units="eV"),
+    #     io_ref=MythenAttributeIORef("threshold"),
+    #     group=ACQUISITION,
+    # )
     exposure_time = AttrRW(
         Float(units="s", prec=3),
         io_ref=MythenAttributeIORef("exptime"),
@@ -135,9 +142,23 @@ class MythenController(Controller):
         io_ref=MythenAttributeIORef("highvoltage"),
         group=POWER,
     )
-    trigger_mode = AttrRW(
+
+    # Should be read/write but for some reason it occassionally returns a list of triggers when reading
+    trigger_mode = AttrW(
         Enum(TriggerMode),
         io_ref=EnumAttributeIORef(TRIGGER_MODE_ENUM_MAPPING, TriggerMode, "timing"),
+        group=ACQUISITION,
+    )
+
+    file_path = AttrRW(
+        String(),
+        io_ref=MythenAttributeIORef("fpath"),
+        group=ACQUISITION,
+    )
+
+    file_name = AttrRW(
+        String(),
+        io_ref=MythenAttributeIORef("fname"),
         group=ACQUISITION,
     )
 
@@ -191,6 +212,8 @@ class MythenController(Controller):
             f"{module_geometry.x} wide by {module_geometry.y} high"
         )
         await self.module_size.update(f"{module_size[0]} by {module_size[1]}")
+        await super().connect()
+        await self.file_name.put("test")
 
     @scan(0.2)
     async def update_temperatures(self):
@@ -204,6 +227,9 @@ class MythenController(Controller):
         # Start detector acquisition. Automatically returns
         # to idle at the end of acquisition.
         self.detector.start()
+
+        # We probably want to run an rx_stop when the detector goes idle so that it self
+        # flushes the frames. As it stands DAQ has to hit stop
 
     @command(group=ACQUISITION)
     async def acquisition_stop(self) -> None:

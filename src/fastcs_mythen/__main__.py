@@ -60,9 +60,11 @@ def ioc(
             output_dir=ui_path / "mythen.bob", title=f"Mythen - {pv_prefix}"
         ),
     )
+    controller.set_path([pv_prefix])
 
     # ...and pass them both to FastCS
     launcher = FastCS(controller, [options])
+    print(launcher.controller_apis)
     launcher.run()
 
 

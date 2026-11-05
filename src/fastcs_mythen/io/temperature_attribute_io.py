@@ -2,10 +2,11 @@ from dataclasses import KW_ONLY, dataclass
 
 from fastcs.attributes import AttributeIO, AttributeIORef, AttrR
 from fastcs.datatypes import DType_T
-from fastcs.logging import bind_logger
-from slsdet import Mythen
 
-logger = bind_logger(__name__)
+# from fastcs.logging import bind_logger
+from slsdet import Mythen3
+
+# logger = bind_logger(__name__)
 
 
 @dataclass
@@ -17,7 +18,7 @@ class TemperatureAttributeIORef(AttributeIORef):
 
 
 class TemperatureAttributeIO(AttributeIO[DType_T, TemperatureAttributeIORef]):
-    def __init__(self, detector: Mythen):
+    def __init__(self, detector: Mythen3):
         self.detector = detector
 
         super().__init__()
