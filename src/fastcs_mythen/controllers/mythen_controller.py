@@ -85,6 +85,12 @@ class MythenController(Controller):
         io_ref=MythenAttributeIORef("hardwareversion"),
         group=HARDWARE_DETAILS,
     )
+    # This gives a list really but string will do for now
+    hostname = AttrR(
+        String(1000),
+        io_ref=MythenAttributeIORef("hostname"),
+        group=HARDWARE_DETAILS,
+    )
     kernel_version = AttrR(
         String(), io_ref=MythenAttributeIORef("kernelversion"), group=SOFTWARE_DETAILS
     )
